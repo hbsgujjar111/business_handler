@@ -1,8 +1,8 @@
-import 'package:business_handler/data/services/local_storage_service.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hooks_riverpod/legacy.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import '../../../data/services/local_storage_service.dart';
 import '../models/business.dart';
 import '../models/financial_state.dart';
 
@@ -24,7 +24,7 @@ class ActiveBusinessNotifier extends StateNotifier<Business?> {
   }
 }
 
-final   dashboardFinancialsProvider = StateNotifierProvider<DashboardFinancialsNotifier, FinancialState>((ref) {
+final dashboardFinancialsProvider = StateNotifierProvider<DashboardFinancialsNotifier, FinancialState>((ref) {
   final business = ref.watch(activeBusinessProvider);
   return DashboardFinancialsNotifier(business?.id);
 });
